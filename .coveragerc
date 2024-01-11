@@ -1,0 +1,21 @@
+[run]
+source = food_r
+omit =
+    */__main__.py
+    */settings/*
+    */urls.py
+    */migrations/*.py
+    */manage.py
+    */wsgi.py
+
+disable_warnings = no-data-collected
+
+[report]
+show_missing = True
+skip_covered = True
+exclude_lines =
+    pragma: no cover
+
+[html]
+title = food_r Coverage Report
+directory = coverage_html

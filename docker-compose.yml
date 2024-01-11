@@ -1,0 +1,35 @@
+version: "3.7"
+
+volumes:
+  postgres:
+
+services:
+  food-app:
+    build: .
+    image: food_recipes_app
+    command: >
+      bash -c "food_r migrate --noinput &&
+              food_r runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      POSTGRES_HOST: postgres
+      HUNTER_URL: https://api.hunter.io/v2/
+      HUNTER_API_KEY: 8a225ea7e524328c62224526b273d48266a41d65
+      CLEARBIT_API_KEY: sk_491946ed89030717a1f0b072fe8b4a94
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: postgres_food
+    image: postgres:14-alpine
+    command: ["postgres", "-c", "log_statement=all"]
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=FooD3#
+      - POSTGRES_DB=dev_food

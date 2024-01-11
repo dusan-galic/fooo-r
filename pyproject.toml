@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "food_r"
+version = "0.1.0"
+description = ""
+authors = ["Dusan Galic <dule.galic@gmail.com>"]
+readme = "README.md"
+# packages = [{include = "food-r"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.5"
+drf-yasg = "^1.21.7"
+split-settings = "^1.0.0"
+drf-extensions = "^0.7.1"
+isort = "^5.12.0"
+black = "^23.9.1"
+flake8 = "^6.1.0"
+mypy = "^1.5.1"
+psycopg2-binary = "^2.9.9"
+rest-framework-simplejwt = "^0.0.2"
+django-cors-headers = "^4.2.0"
+djangorestframework-simplejwt = "^5.3.0"
+requests = "^2.31.0"
+pytest = "^7.4.4"
+freezegun = "^1.4.0"
+pytest-django = "^4.7.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+food_r = "food_r.__main__:main"
